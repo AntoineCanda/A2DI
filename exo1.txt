@@ -22,5 +22,11 @@ type(d) = numéric
 50 - 99 = classe 1
 100 - 149 = classe 2
 
-On peut répartir en faisant 1 exemple sur 2 => pas d'aléatoire en revanche
+On divise le data set en 3 blocs permettant d'avoir toutes les instances de la classe 0, 1 et 2. 
+On va ensuite utiliser la fonction shuffle pour mélanger les données que l'on a. 
+La méthode permet de choisir le pourcentage du dataset que l'on souhaite attribuer à l'ensemble d'apprentissage et de test (entier entre 0 et 100).
+On calcule ensuite le nombre d'éléments que l'on ajoutera dans l'ensemble d'apprentissage et l'ensemble de test.
+
+4 : 
+
 
