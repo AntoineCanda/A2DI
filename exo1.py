@@ -41,6 +41,7 @@ def distance(x,y):
         res += (y[i] - x[i])**2
     
     return sqrt(res)
+
 # Parametre : data l'ensemble de donnee utilisee, x l'instance que l'on considere et k le nombre de voisins que l'on considere.
 def kppv(data,x,k):
     
@@ -59,14 +60,18 @@ def kppv(data,x,k):
     
     return np.argmax(np.bincount(classe))
     
-def taux_classification(dataApp,dataTest):
+def taux_classification(dataApp,dataTest,k):
     cpt = 0
     for i in range(0,len(dataTest['data'])):
-        classe = kppv(dataApp,dataTest['data'][i],15)
+        classe = kppv(dataApp,dataTest['data'][i],k)
         
         if classe == dataTest['target'][i]:
             cpt = cpt+1
-    
-    print(cpt)
+        else :
+            print(i)
+            print("classe obtenue = ")
+            print(classe)
+            print("classe reelle = ")
+            print(dataTest['target'][i])
     res = cpt / len(dataTest['data'])
     return res * 100
