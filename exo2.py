@@ -34,9 +34,7 @@ def ptrain(data):
     theta = np.array([np.random.random(),np.random.random(),np.random.random()])
     end = False
     
-    while not(end):
-        end = True
-        for
+    
 
 
 def ptest(x,theta):

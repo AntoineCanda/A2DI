@@ -6,7 +6,7 @@ Created on Wed Nov 15 15:51:27 2017
 """
 
 import numpy as np
-import matplotlib as mpl
+import matplotlib.pyplot as mpl
 import random
 from math import sqrt
 from sklearn import datasets
@@ -33,12 +33,12 @@ def diviser_data_set(data, n) :
     
     app={'data':dataApp,'target':targetApp}
     test={'data':dataTest,'target':targetTest}
-    return [app,test]
+    return app,test
 
 def distance(x,y):
     res = 0
     for i in range(0,len(x)):
-        res += (y[i] - x[i])**2
+        res += ((y[i] - x[i])**2)
     
     return sqrt(res)
 
@@ -51,14 +51,18 @@ def kppv(data,x,k):
         dist.append(res)
         
     pos = np.argsort(dist)
-    
+    print(pos)
     classe = []
     
     for i in range(0,k):
         idx = np.where(pos == i)
         classe.append(data['target'][idx[0][0]])
     
-    return np.argmax(np.bincount(classe))
+    print(classe)
+    
+    c = np.argmax(np.bincount(classe))
+    print(c)
+    return c
     
 def taux_classification(dataApp,dataTest,k):
     cpt = 0
@@ -67,11 +71,27 @@ def taux_classification(dataApp,dataTest,k):
         
         if classe == dataTest['target'][i]:
             cpt = cpt+1
-        else :
-            print(i)
-            print("classe obtenue = ")
-            print(classe)
-            print("classe reelle = ")
-            print(dataTest['target'][i])
+
     res = cpt / len(dataTest['data'])
     return res * 100
+    
+def repeat():
+    taux = []
+    dataApp,dataTest = diviser_data_set(data,67)
+
+    for i in range(1,100):
+        val = taux_classification(dataApp,dataTest,i)
+        taux.append(val)
+         
+   # for i, elt in enumerate(taux):
+    #    print("Pour k = {} le taux de classification vaut {}.".format(i+1, elt))
+        
+    x = []
+    for i in range(1,100):
+        x.append(i)
+    
+    mpl.plot(x,taux)
+    mpl.axis([1,100,0,100])
+    mpl.show()
+        
+    return taux
