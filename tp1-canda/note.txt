@@ -1,0 +1,8 @@
+Voici les deux exercices du tp 1
+
+Je n'ai pas eu le temps de faire les deux dernières questions de l'exercice 2.
+J'ai egalement eu un probleme avec Jupyter, je n'ai donc pas pu faire de notebook de ce dernier sur ce tp je veillerai à ce que ça ne se reproduise pas par la suite. 
+
+Cordialement,
+
+Antoine CANDA
